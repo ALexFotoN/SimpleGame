@@ -1,0 +1,13 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ScoreManager : MonoBehaviour
+{
+    public PlayerController player; // Привязать игрока через инспектор
+    public Text scoreText;
+
+    void Update()
+    {
+        scoreText.text = "Score: " + player.score;
+    }
+}
