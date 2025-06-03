@@ -1,0 +1,7 @@
+using UnityEngine;
+
+public class Coin : MonoBehaviour
+{
+    // Этот скрипт можно оставить пустым,
+    // если не требуется дополнительная логика для монет.
+}
