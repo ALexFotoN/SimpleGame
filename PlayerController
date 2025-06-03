@@ -1,0 +1,34 @@
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public float moveSpeed = 5f;
+    public int score = 0;
+
+    void Update()
+    {
+        MovePlayer();
+    }
+
+    void MovePlayer()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+
+        if (direction.magnitude >= 0.1f)
+        {
+            transform.Translate(direction * moveSpeed * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            score++;
+            Destroy(other.gameObject);
+            Debug.Log("Score: " + score);
+        }
+    }
+}
